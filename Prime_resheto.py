@@ -18,15 +18,42 @@ def prime(N):
     return n
 
 
-def check_e(e):
-    return True
+def generator_e(p,q):
+    e=random.choice(primes)
+    while e>=p or e>=q:
+        e=random.choice(primes)
+    print(e)
+    return e
 
 
-def check_d(d):
-    return True
+def generator_d(p,q,e):
+    d=random.choice(primes)
+    while (e*d)%f_n!=1:
+        d=random.choice(primes)
+    print(d)
+    return d
+
+def alphabet():
+    rus = dict()
+    for i in range (1,33):
+        rus.update({chr(i+1039):i})
+    return (rus)
+
+def code(rus):
+    i = str(input("Введите русскую заглавную букву:"))
+    x=rus.get (i)
+    print(x)
+    y=(x**e)%f_n
+    return y
+
+def decode(y):
+    z=(y**d)%f_n
+    return z
+
+
 
 primes = []
-primes = prime(int(input()))
+primes = prime(int(input("Введите диапазон простых чисел:")))
 print(primes)
 p=random.choice(primes)
 q=random.choice(primes)
@@ -38,12 +65,12 @@ n = p*q
 print("n=",n)
 f_n=(p-1)*(q-1)
 print("f(n)=",f_n)
-e=random.choice(primes)
-while e==p or e==q and f_n:
-    e=random.choice(primes)
-d=random.choice(primes)
-while check
-while d==p or d==q or d==e:
-    d=random.choice(primes)
+e=generator_e(p,q)
+d=generator_d(p,q,e)
 print("e=",e)
 print("d=",d)
+abc=alphabet()
+coded_num=code(abc)
+decoded_num=decode(coded_num)
+print("Закодированное число -",coded_num)
+print("Расшифрованное число -",decoded_num)
