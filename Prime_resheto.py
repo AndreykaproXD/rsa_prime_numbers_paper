@@ -36,8 +36,6 @@ def generator_d(e,f_n):
         print("d=",d,"; mod_div_rem=", mod_div_rem)
         if mod_div_rem==1:
             break
-        #if c>20:
-         #   break
     return d
 
 def alphabet():
