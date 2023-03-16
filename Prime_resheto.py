@@ -43,11 +43,11 @@ def code(rus):
     i = str(input("Введите русскую заглавную букву:"))
     x=rus.get (i)
     print(x)
-    y=(x**e)%f_n
+    y=(x**e)%n
     return y
 
 def decode(y):
-    z=(y**d)%f_n
+    z=(y**d)%n
     return z
 
 
