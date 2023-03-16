@@ -1,21 +1,22 @@
 import random
 
 
-def prime(N):
-    n = [N for N in range (1,N+1)]
-    n[0] = 0
+def prime(prime_span):
+    prime_arr = [prime_span for prime_span in range (1,prime_span+1)]
+    # Use 0 for "stabbing out" all composite nums
+    prime_arr[0] = 0
     S = 2
-    while S < N/2:
-        if n[S-1]!=0:
+    while S < prime_span/2:
+        if prime_arr[S-1]!=0:
             R = S+S
-            while R<=N:
-                n[R-1] = 0
+            while R<=prime_span:
+                prime_arr[R-1] = 0
                 R = R+S
         S=S+1
-    n = set(n)
-    n.remove(0)
-    n = list(n)
-    return n
+    prime_arr = set(prime_arr)
+    prime_arr.remove(0)
+    prime_arr = list(prime_arr)
+    return prime_arr
 
 
 def generator_e(p,q,f_n):
