@@ -44,10 +44,9 @@ def alphabet():
         rus.update({chr(i+1039):i})
     return (rus)
 
-def code(rus,e,n):
-    i = str(input("Введите русскую заглавную букву:"))
-    x=rus.get (i)
-    print("x=",x)
+def code(rus,e,n,ltr):
+    x=rus.get(ltr)
+    print("Порядок в алфавите(код символа): ",x)
     y=(x**e)%n
     return y
 
@@ -78,10 +77,10 @@ print("e=",rsa_e)
 rsa_d=generator_d(rsa_e,rsa_f_n)
 if rsa_e==rsa_d:
     print("Ошибка: публичный и приватный ключи равны")
-
 print("d=",rsa_d)
 abc=alphabet()
-coded_num=code(abc,rsa_e,rsa_n)
-decoded_num=decode(coded_num,rsa_d,rsa_n)
-print("Закодированное число -",coded_num)
-print("Расшифрованное число -",decoded_num)
+rus_word = str(input("Введите слово из русских заглавных букв:"))
+for rus_letter in rus_word:
+    coded_num=code(abc,rsa_e,rsa_n,rus_letter)
+    decoded_num=decode(coded_num,rsa_d,rsa_n)
+    print("Символ: ",rus_letter, "; шифр: ",coded_num,"; расшифровка: ",decoded_num,"\n")
