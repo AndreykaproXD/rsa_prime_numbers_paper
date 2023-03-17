@@ -75,12 +75,13 @@ print("n=",rsa_n)
 print("f(n)=",rsa_f_n)
 print("e=",rsa_e)
 rsa_d=generator_d(rsa_e,rsa_f_n)
-if rsa_e==rsa_d:
-    print("Ошибка: публичный и приватный ключи равны")
 print("d=",rsa_d)
-abc=alphabet()
-rus_word = str(input("Введите слово из русских заглавных букв:"))
-for rus_letter in rus_word:
-    coded_num=code(abc,rsa_e,rsa_n,rus_letter)
-    decoded_num=decode(coded_num,rsa_d,rsa_n)
-    print("Символ: ",rus_letter, "; шифр: ",coded_num,"; расшифровка: ",decoded_num,"\n")
+if rsa_e==rsa_d:
+    print("Ошибка: публичный и приватный ключи равны. Шифр нестойкий.")
+else:
+    abc=alphabet()
+    rus_word = str(input("Введите слово из русских заглавных букв:"))
+    for rus_letter in rus_word:
+        coded_num=code(abc,rsa_e,rsa_n,rus_letter)
+        decoded_num=decode(coded_num,rsa_d,rsa_n)
+        print("Символ: ",rus_letter, "; шифр: ",coded_num,"; расшифровка: ",decoded_num,"\n")
