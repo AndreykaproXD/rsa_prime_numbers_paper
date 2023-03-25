@@ -84,4 +84,7 @@ else:
     for rus_letter in rus_word:
         coded_num=code(abc,rsa_e,rsa_n,rus_letter)
         decoded_num=decode(coded_num,rsa_d,rsa_n)
-        print("Символ: ",rus_letter, "; шифр: ",coded_num,"; расшифровка: ",decoded_num,"\n")
+        if abc[rus_letter]==decoded_num:
+            print("Символ: ",rus_letter, "; шифр: ",coded_num,"; расшифровка: ",decoded_num,"\n")
+        else:
+            print("Ошибка: код буквы и расшифрованное число не равны")
