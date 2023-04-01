@@ -30,7 +30,7 @@ def generator_e(p,q,f_n):
 def generator_d(e,f_n):
     c=1
     while 1:
-        d=c*round(f_n/e)+1
+        d=round((c*f_n+1)/e)
         c+=1
         mod_div_rem=(d*e)%f_n
         print("d=",d,"; mod_div_rem=", mod_div_rem)
